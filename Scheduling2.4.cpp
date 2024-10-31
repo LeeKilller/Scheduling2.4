@@ -19,9 +19,13 @@ int main()
         BLIFParser parser;
         if (parser.Parse(inputStr)) {
             std::cout << std::endl << "Success Parse File." << std::endl;
+            std::cout << "Please enter the number of AND gates, joint gates and NOT gates (separated by a space)." << std::endl;
+            int ANDLimit, ORLimit, NOTLimit;
+            std::cin >> ANDLimit >> ORLimit >> NOTLimit;
+            std::cout<< "AND gate: " << ANDLimit << " joint gate: " << ORLimit << " NOT gate: " << NOTLimit << std::endl;
             parser.Print();
             ML_RCS ml;
-            ml.Schedule(parser);
+            ml.Schedule(parser, ANDLimit, ORLimit, NOTLimit);
             ml.Print();
         }
 

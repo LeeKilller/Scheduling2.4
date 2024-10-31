@@ -2,9 +2,6 @@
 #include "BLIFParser.h"
 #include <map>
 
-#define ANDLIMIT 2
-#define ORLIMIT 3
-#define NOTLIMIT 1
 
 enum TaskType
 {
@@ -32,7 +29,7 @@ class ML_RCS
 {
 public:
 
-	int Schedule(BLIFParser parser) {
+	int Schedule(BLIFParser parser, const int ANDLIMIT, const int ORLIMIT, const int NOTLIMIT) {
 
 		std::vector<std::string> Inputs = parser.GetInputs();
 		std::vector<std::string> Outputs = parser.GetOutputs();
